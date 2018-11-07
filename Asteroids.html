@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body background="https://upload.wikimedia.org/wikipedia/commons/a/a2/Polycyclic_Aromatic_Hydrocarbons_In_Space.jpg"
+   onload="setInterval(draw,5)">
+
+
+    <canvas id="circle" width="1800" height="850";></canvas>
+
+    <!-- <input type="text" onkeypress="move(event)"> -->
+
+  </body>
+
+<script>
+
+  var canvas = document.getElementById('circle');
+  //var c = document.getElementById('line');
+  var ctx = canvas.getContext('2d');
+  var X = canvas.width / 2;
+  var Y = canvas.height / 2;
+  var R = 15;
+  var xpos=0;
+
+//<input type="text" onkeydown="move(event)">
+
+  var x=1;
+
+
+  function draw()
+  {
+//var canvas = document.getElementById('circle');
+//if (canvas.getContext)
+//{
+//var ctx = canvas.getContext('2d');
+ctx.clearRect(0,0,canvas.width,canvas.height);
+//var X = canvas.width / 2;
+//var Y = canvas.height / 2;
+//var R = 15;
+ctx.beginPath();
+ctx.arc(X-x, Y+3*x-200, R, 0, 2 * Math.PI, false);
+x++
+ctx.lineWidth = 100;
+ctx.fillStyle = 'red';
+ctx.fill();
+
+addEventListener("keydown",function(e)
+{
+    if(e.keyCode == 37)
+    {
+        xpos=xpos-0.01;
+    }
+
+    if(e.keyCode == 39)
+    {
+        xpos=xpos+0.01;
+    }
+    console.log(xpos);
+  }
+);
+
+ctx.lineWidth="10";
+ctx.strokeStyle="yellow";
+ctx.rect(800+xpos,800,200, 50);
+ctx.stroke();
+
+}
+
+function move(event) {
+var key = (window.event) ? event.keyCode : event.which;
+if(key===37) {
+  xpos--;
+}
+if(key===39) {
+  xpos++;
+}
+console.log(xpos);
+}
+
+  </script>
+
+
+</html>

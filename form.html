@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <style>
+      form {
+      margin:0 auto;
+      width:400 px;
+    }
+      </style>
+
+  </head>
+  <body>
+
+    <div>
+      <label>Name:</label>
+      <input id="name" name="user_name">
+    </div>
+    <div>
+      <label>E-mail:</label>
+      <input id="mail" name="user_email">
+    </div>
+    <div>
+      <label>Message:</label>
+      <textarea name="user_message"></textarea>
+    </div>
+
+    <div class="button">
+  <button type="submit" onclick="checkstatements()">Submit form</button>
+</div>
+
+
+  </body>
+
+
+  <script>
+    var textExp=/^[a-zA-Z]+$/;
+    var emailReg=/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+
+
+  function checkstatements() {
+
+      var username=document.getElementById('name').value;
+      var useremail=document.getElementById('mail').value;
+
+  if((textExp.exec(username)) && (emailReg.exec(useremail))) {
+    alert("form submitted");
+  } else {
+    alert("re-do form");
+  }
+}
+
+    </script>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+<div onmouseover="move(event)" position: absolute>
+    <p id="text">text</p>
+    </div>
+
+        <div onmouseover="changetext(event)">
+          <label>Name:</label>
+          <input id="name" name="user_name">
+        </div>
+        <div>
+          <label>E-mail:</label>
+          <input id="mail" name="user_email">
+        </div>
+        <div>
+          <label>Message:</label>
+          <textarea name="user_message"></textarea>
+        </div>
+
+        <body onmousemove="m(event)">
+          <div id="box" style="background-color:#990000; width:20px; height:20px; position:absolute;" />
+        </body>
+
+
+  </body>
+
+<script>
+
+//document.addEventListener("mousemove", getMouse);
+//element.style.top=window.event.client;
+
+function changetext(event){
+  //var element = document.getElementById("p1");
+  //element.style.left = e.pageX;
+  //element.style.top = e.pageY;
+  document.getElementById("text").innerHTML="changed!"
+}
+
+function move(event) {
+  var x = event.clientX;
+  var y = event.clientY;
+  var emf = document.getElementById("text");
+  emf.style.position="absolute";
+  emf.style.left=x;
+  emf.style.top=y;
+}
+
+  </script>
+
+</html>
